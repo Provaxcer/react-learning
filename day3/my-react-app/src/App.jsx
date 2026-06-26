@@ -1,19 +1,20 @@
 import { useState } from "react";
 
-function Counter() {
-  const [InitialBalance, setCount] = useState(10000);
+function PnLTracker() {
+  const [balance, setBalance] = useState(10000);
 
   return (
     <div>
-      <p>{InitialBalance}</p>
-      <button onClick={() => setCount(InitialBalance + 500)}>
+      <p>Balance: ₹{balance}</p>
+      <button onClick={() => setBalance(balance + 500)}>
         Trade Won
       </button>
-      <button onClick={() => setCount(InitialBalance - 500)}>
+
+      <button onClick={() => setBalance(balance - 500)}>
         Trade Lost
       </button>
     </div>
   );
 }
 
-export default Counter;
+export default PnLTracker;
