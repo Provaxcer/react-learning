@@ -22,14 +22,14 @@ function Counter() {
   const [count, increaseCount] = useState(0);
   return (
     <div>
-      <p>Cookies Baked: {count}</p>
+      <p>{count === 0 ? "No cookies baked yet." : `Cookies Baked: ${count}`}</p>
       <button onClick={() => increaseCount(count + 1)}>Bake a cookie</button>
     </div>
-  )
+  );
 }
 
-function App () {
-  return (<Counter />)
+function App() {
+  return <Counter />;
 }
 
 export default App;
