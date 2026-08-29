@@ -1,18 +1,10 @@
-import { useState } from "react"
-
-function NameInput() {
-  const [name, setName] = useState("");
-
+function Welcome() {
   return (
     <div>
-      <input onChange={(e) => setName(e.target.value)} />
-      <p>Typed Name: {name}</p>
+      <h1>Hello, World!</h1>
+      <p>Welcome to my React app.</p>
     </div>
   );
 }
 
-function App () {
-  return (<NameInput />)
-}
-
-export default App;
+export default Welcome;
