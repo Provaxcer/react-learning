@@ -1,19 +1,15 @@
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    "Learn React",
-    "Build a website",
-    "Practice JavaScript"
-  ]);
+  const [input, setInput] = useState("");
 
   return (
     <div>
       <h1>My Tasks</h1>
 
-      <p>{tasks[0]}</p>
-      <p>{tasks[1]}</p>
-      <p>{tasks[2]}</p>
+      <input type="text" onChange={(e) => setInput(e.target.value)} />
+
+      <p>{input}</p>
     </div>
   );
 }
