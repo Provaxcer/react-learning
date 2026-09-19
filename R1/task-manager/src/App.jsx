@@ -1,15 +1,19 @@
 import { useState } from "react";
 
 function App() {
-  const [input, setInput] = useState("");
+  const [text, setText] = useState("");
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
 
   return (
     <div>
-      <h1>My Tasks</h1>
-
-      <input type="text" onChange={(e) => setInput(e.target.value)} />
-
-      <p>{input}</p>
+      <span>Enter text: </span>
+      <input type="text"
+      value={text} 
+      onChange={handleChange} />
+      <p>Hello, {text}</p>
     </div>
   );
 }
