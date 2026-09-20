@@ -8,13 +8,25 @@ function App() {
     "Build a React project",
   ]);
 
+  const [input, setInput] = useState("");
+
+  function addTask() {
+    setTasks([...tasks, input]);
+  }
+
   return (
     <div>
-      <input type="text" value={tasks} placeholder="Task Name" onChange={(e) => {
-        setTasks(e.text.value);
-      }}/>
-      <button>Submit</button>
+      <input
+        type="text"
+        value={input}
+        placeholder="Task Name"
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+      />
+      <button onClick={addTask}>Add Task</button>
       <h1>Tasks:</h1>
+      <p>{tasks}</p>
     </div>
   );
 }
