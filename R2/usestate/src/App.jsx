@@ -14,6 +14,11 @@ function App() {
     setTasks([...tasks, input]);
   }
 
+  function deleteTask(){
+    const result = tasks.filter((num)=>{
+      return num == key
+    })
+
   return (
     <div>
       <input
@@ -26,7 +31,16 @@ function App() {
       />
       <button onClick={addTask}>Add Task</button>
       <h1>Tasks:</h1>
-      <p>{tasks}</p>
+      <div>
+        {tasks.map((allTask) => {
+          return (
+            <div>
+              <p key={allTask}>{allTask}</p>
+              <button onClick={deleteTask}>Delete</button>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
