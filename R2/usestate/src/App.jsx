@@ -59,23 +59,19 @@ function App() {
 
       <div>
         {tasks.map((allTask) => {
-  return (
-    <div key={allTask.name}>
-      <p>
-        {allTask.completed ? "✓ " : ""}
-        {allTask.name}
-      </p>
+          return (
+            <div key={allTask.name}>
+              <p>
+                {allTask.completed ? "✓ " : ""}
+                {allTask.name}
+              </p>
 
-      <button onClick={() => deleteTask(allTask)}>
-        Delete
-      </button>
+              <button onClick={() => deleteTask(allTask)}>Delete</button>
 
-      <button onClick={() => completeTask(allTask)}>
-        Complete
-      </button>
-    </div>
-  );
-})}
+              <button onClick={() => completeTask(allTask)}>Complete</button>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
