@@ -68,7 +68,9 @@ function App() {
 
               <button onClick={() => deleteTask(allTask)}>Delete</button>
 
-              <button onClick={() => completeTask(allTask)}>Complete</button>
+              {!allTask.completed && (
+                <button onClick={() => completeTask(allTask)}>Complete</button>
+              )}
             </div>
           );
         })}
