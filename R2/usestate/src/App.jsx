@@ -16,15 +16,6 @@ function App() {
     { name: "Practice JavaScript", completed: false }
   ]);
 
-  return (
-<div>
-  {Task.map => ((tasks) {
-      <tasks name="Learn React" completed={false} />
-    })}
-</div>
-    
-  );
-
   const [input, setInput] = useState("");
 
   function addTask() {
