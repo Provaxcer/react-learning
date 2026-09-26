@@ -1,11 +1,29 @@
 import { useState } from "react";
 
+function Task(props) {
+  return ( 
+    <div>
+    <p>{props.name}</p>
+    <p>{props.completed? "✓ " : ""}</p>
+    </div>
+  )
+}
+
 function App() {
   const [tasks, setTasks] = useState([
     { name: "Learn React", completed: false },
     { name: "Build a website", completed: false },
-    { name: "Practice JavaScript", completed: false },
+    { name: "Practice JavaScript", completed: false }
   ]);
+
+  return (
+<div>
+  {Task.map => ((tasks) {
+      <tasks name="Learn React" completed={false} />
+    })}
+</div>
+    
+  );
 
   const [input, setInput] = useState("");
 
@@ -80,5 +98,3 @@ function App() {
 }
 
 export default App;
-
-//have to learn
