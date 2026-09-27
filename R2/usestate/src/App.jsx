@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 function Task(props) {
-  return ( 
+  return (
     <div>
-    <p>{props.name}</p>
-    <p>{props.completed? "✓ " : ""}</p>
+      <p>{props.name}</p>
+      <p>{props.completed ? "✓ " : ""}</p>
     </div>
-  )
+  );
 }
 
 function App() {
   const [tasks, setTasks] = useState([
     { name: "Learn React", completed: false },
     { name: "Build a website", completed: false },
-    { name: "Practice JavaScript", completed: false }
+    { name: "Practice JavaScript", completed: false },
   ]);
 
   const [input, setInput] = useState("");
@@ -70,10 +70,7 @@ function App() {
         {tasks.map((allTask) => {
           return (
             <div key={allTask.name}>
-              <p>
-                {allTask.completed ? "✓ " : ""}
-                {allTask.name}
-              </p>
+              <Task name={allTask.name} completed={allTask.completed} />
 
               <button onClick={() => deleteTask(allTask)}>Delete</button>
 
