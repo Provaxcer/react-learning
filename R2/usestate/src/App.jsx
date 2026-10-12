@@ -5,6 +5,8 @@ function Task(props) {
     <div>
       <p>{props.name}</p>
       <p>{props.completed ? "✓ " : ""}</p>
+      <button onClick={props.onDelete}>Delete</button>
+      {!props.completed && <button onClick={props.onComplete}>Complete</button>}
     </div>
   );
 }
@@ -70,13 +72,12 @@ function App() {
         {tasks.map((allTask) => {
           return (
             <div key={allTask.name}>
-              <Task name={allTask.name} completed={allTask.completed} />
-
-              <button onClick={() => deleteTask(allTask)}>Delete</button>
-
-              {!allTask.completed && (
-                <button onClick={() => completeTask(allTask)}>Complete</button>
-              )}
+              <Task
+                name={allTask.name}
+                completed={allTask.completed}
+                onDelete={() => deleteTask(allTask)}
+                onComplete={() => completeTask(allTask)}
+              />
             </div>
           );
         })}
