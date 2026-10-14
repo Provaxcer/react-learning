@@ -31,7 +31,7 @@ function TaskList(props) {
       <h1>Tasks: {props.tasks.length}</h1>
       {props.tasks.map((allTask) => {
         return (
-          <div key={allTask.name}>
+          <div key={allTask.id}>
             <Task
               name={allTask.name}
               completed={allTask.completed}
@@ -47,9 +47,9 @@ function TaskList(props) {
 
 function App() {
   const [tasks, setTasks] = useState([
-    { name: "Learn React", completed: false },
-    { name: "Build a website", completed: false },
-    { name: "Practice JavaScript", completed: false },
+    { id: 1, name: "Learn React", completed: false },
+    { id: 2, name: "Build a website", completed: false },
+    { id: 3, name: "Practice JavaScript", completed: false },
   ]);
 
   const [input, setInput] = useState("");
@@ -57,14 +57,14 @@ function App() {
   function addTask() {
     if (input.trim() === "") return;
 
-    setTasks([...tasks, { name: input, completed: false }]);
+    setTasks([...tasks, { id: Date.now(), name: input, completed: false }]);
 
     setInput("");
   }
 
   function deleteTask(taskToDelete) {
     const result = tasks.filter((task) => {
-      return task.name !== taskToDelete.name;
+      return task.name !== taskToDelete.id;
     });
 
     setTasks(result);
@@ -72,7 +72,7 @@ function App() {
 
   function completeTask(taskToComplete) {
     const result = tasks.map((task) => {
-      if (task.name === taskToComplete.name) {
+      if (task.name === taskToComplete.id) {
         return {
           ...task,
           completed: true,
