@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Task(props) {
   return (
@@ -46,9 +46,7 @@ function TaskList(props) {
 }
 
 function TaskSummary(props) {
-  const completedTasks = props.tasks.filter(
-    (task) => task.completed === true
-  );
+  const completedTasks = props.tasks.filter((task) => task.completed === true);
   return <p>Completed tasks: {completedTasks.length}</p>;
 }
 
@@ -61,6 +59,10 @@ function App() {
 
   const [input, setInput] = useState("");
 
+  useEffect(() => {
+    console.log("App loaded");
+  }, []);
+
   function addTask() {
     if (input.trim() === "") return;
 
@@ -70,16 +72,13 @@ function App() {
   }
 
   function deleteTask(taskToDelete) {
-    const result = tasks.filter((task) => {
-      return task.name !== taskToDelete.id;
-    });
-
+    const result = tasks.filter((task) => task.id !== taskToDelete.id);
     setTasks(result);
   }
 
   function completeTask(taskToComplete) {
     const result = tasks.map((task) => {
-      if (task.name === taskToComplete.id) {
+      if (task.id === taskToComplete.id) {
         return {
           ...task,
           completed: true,
