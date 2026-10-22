@@ -45,6 +45,13 @@ function TaskList(props) {
   );
 }
 
+function TaskSummary(props) {
+  const completedTasks = props.tasks.filter(
+    (task) => task.completed === true
+  );
+  return <p>Completed tasks: {completedTasks.length}</p>;
+}
+
 function App() {
   const [tasks, setTasks] = useState([
     { id: 1, name: "Learn React", completed: false },
@@ -87,6 +94,7 @@ function App() {
 
   return (
     <div>
+      <TaskSummary tasks={tasks} />
       <TaskForm input={input} onInputChange={setInput} onAdd={addTask} />
       <TaskList tasks={tasks} onDelete={deleteTask} onComplete={completeTask} />
     </div>
