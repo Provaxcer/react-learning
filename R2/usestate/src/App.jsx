@@ -60,8 +60,8 @@ function App() {
   const [input, setInput] = useState("");
 
   useEffect(() => {
-    console.log("App loaded");
-  }, []);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function addTask() {
     if (input.trim() === "") return;
